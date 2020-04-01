@@ -6,20 +6,24 @@ export const useHomeFetch = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-
   const fetchMovies = async (endpoint) => {
     setError(false);
     setLoading(true);
+
+    const isLoadMore = endpoint.search("page");
 
     try {
       //wait two times one for fetching data and second for parsing data to JSON
       const result = await (await fetch(endpoint)).json();
       setState((prev) => ({
         ...prev,
-        movies: [...result.results],
+        movies:
+          isLoadMore !== -1
+            ? [...prev.movies, ...result.results]
+            : [...result.results],
         heroImage: prev.heroImage || result.results[0],
-        currentpage: result.page,
-        totalpages: result.total_pages
+        currentPage: result.page,
+        totalPages: result.total_pages
       }));
     } catch (error) {
       setError(true);
