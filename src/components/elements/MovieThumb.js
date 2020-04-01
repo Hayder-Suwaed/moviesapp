@@ -1,19 +1,25 @@
-import React from "react";
-import { Link } from "@reach/router";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Link } from '@reach/router';
+import PropTypes from 'prop-types';
 
-import { StyledMovieThump } from "../styles/StyledMovieThumb";
+import { StyledMovieThump  } from '../styles/StyledMovieThumb';
 
-const MovieThump = ({ image, movieId, clickable }) => (
-  <StyledMovieThump>
+const MovieThump  = ({ image, movieId, clickable }) => (
+  <StyledMovieThump >
     {clickable ? (
       <Link to={`/${movieId}`}>
-        <img className="clickable" src={image} alt="moviethumb" />
+        <img className="clickable" src={image} alt="moviethump" />
       </Link>
     ) : (
-      <img src={image} alt="moviethumb" />
+      <img src={image} alt="moviethump" />
     )}
-  </StyledMovieThump>
-);
+  </StyledMovieThump >
+)
+
+MovieThump.propTypes = {
+  image: PropTypes.string,
+  movieId: PropTypes.number,
+  clickable: PropTypes.bool,
+}
 
 export default MovieThump;
