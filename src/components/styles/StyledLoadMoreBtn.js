@@ -16,7 +16,6 @@ export const StyledLoadMoreBtn = styled.button`
   margin: 20px auto;
   padding: 0 20px;
   outline: none;
-
   :hover {
     opacity: 0.8;
   }

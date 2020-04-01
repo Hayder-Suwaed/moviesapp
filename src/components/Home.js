@@ -12,6 +12,8 @@ import Grid from "./elements/Grid";
 import LoadMoreBtn from "./elements/LoadMoreBth.js";
 import Spinner from "./elements/Spinner";
 import MovieThump from "./elements/MovieThumb";
+import { POPULAR_BASE_URL, SEARCH_BASE_URL } from "../config";
+
 //custom hook
 import { useHomeFetch } from "./hooks/useHomeFetch";
 import NoImage from "./images/no_image.jpg";
@@ -26,6 +28,13 @@ const Home = () => {
     fetchMovies
   ] = useHomeFetch();
   const [searchTerm, setSearchTerm] = useState("");
+
+  const searchMovies = (search) => {
+    const endpoint = search ? SEARCH_BASE_URL + search : POPULAR_BASE_URL;
+
+    setSearchTerm(search);
+    fetchMovies(endpoint);
+  };
 
   const loadMoreMovies = () => {
     //end point to load more movies
@@ -42,11 +51,13 @@ const Home = () => {
   if (!movies[0]) return <Spinner />;
   return (
     <>
-      <HeroImage
-        image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${heroImage.backdrop_path}`}
-        title={heroImage.original_title}
-        text={heroImage.overview}
-      />
+      {!searchTerm && (
+        <HeroImage
+          image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${heroImage.backdrop_path}`}
+          title={heroImage.original_title}
+          text={heroImage.overview}
+        />
+      )}
       <Grid header={searchTerm ? "Search Result" : "Popular Movies"}>
         {movies.map((movie) => (
           <MovieThump
@@ -62,7 +73,7 @@ const Home = () => {
           />
         ))}
       </Grid>
-      <SearchBar />
+      <SearchBar callback={searchMovies} />
       {loading && <Spinner />}
       {currentPage < totalPages && !loading && (
         <LoadMoreBtn text="Load More" callback={loadMoreMovies} />
