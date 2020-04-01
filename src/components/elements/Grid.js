@@ -10,6 +10,8 @@ const Grid = ({ header, children }) => (
   </StyledGrid>
 )
 
-
+Grid.propTypes = {
+  header: PropTypes.string,
+}
 
 export default Grid;
