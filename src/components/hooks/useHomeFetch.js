@@ -3,7 +3,7 @@ import { POPULAR_BASE_URL } from "../../config";
 
 export const useHomeFetch = () => {
   const [state, setState] = useState({ movies: [] });
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   const fetchMovies = async (endpoint) => {
@@ -13,7 +13,6 @@ export const useHomeFetch = () => {
     const isLoadMore = endpoint.search("page");
 
     try {
-      //wait two times one for fetching data and second for parsing data to JSON
       const result = await (await fetch(endpoint)).json();
       setState((prev) => ({
         ...prev,
@@ -23,7 +22,7 @@ export const useHomeFetch = () => {
             : [...result.results],
         heroImage: prev.heroImage || result.results[0],
         currentPage: result.page,
-        totalPages: result.total_pages
+        totalPages: result.total_pages,
       }));
     } catch (error) {
       setError(true);
@@ -32,9 +31,21 @@ export const useHomeFetch = () => {
     setLoading(false);
   };
 
+  // Fetch popular movies initially on mount
   useEffect(() => {
-    fetchMovies(POPULAR_BASE_URL);
+    if (sessionStorage.homeState) {
+      setState(JSON.parse(sessionStorage.homeState));
+      setLoading(false);
+    } else {
+      fetchMovies(POPULAR_BASE_URL);
+    }
   }, []);
+
+  useEffect(() => {
+    if (!state.searchTerm) {
+      sessionStorage.setItem("homeState", JSON.stringify(state));
+    }
+  }, [state]);
 
   return [{ state, loading, error }, fetchMovies];
 };
