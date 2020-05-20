@@ -25,13 +25,17 @@ https://agitated-wing-0e4fcc.netlify.app/
 ## Final Product
 
 Main Page:
-!["Main Page"]()
+!["Main Page"](https://github.com/Hayder-Suwaed/moviesapp/blob/master/public/images/mainpage.png)
 
 movie-details Page
-!["Movie-Details Page"]()
+!["Movie-Details Page"](https://github.com/Hayder-Suwaed/moviesapp/blob/master/public/images/moviedetails.png)
 
 movie-cast page
-!["Movie-Cast Page"]()
+!["Movie-Cast Page"](https://github.com/Hayder-Suwaed/moviesapp/blob/master/public/images/actors.png)
+
+populare-movie page
+!["Popular-Movie Page"](https://github.com/Hayder-Suwaed/moviesapp/blob/master/public/images/popularmovies.png)
+
 
 
 
