@@ -40,7 +40,7 @@ populare-movie page
 
 
 
-## Dependec
+## Dependencies
 * expo: 36.0.0
 * React-Native: 0.61.5
 * Jest: 24.9.0
