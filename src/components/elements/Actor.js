@@ -22,7 +22,7 @@ const Actor = ({ actor }) => (
 );
 
 Actor.propTypes = {
-  actor: PropTypes.object
+  actor: PropTypes.object,
 };
 
 export default Actor;
