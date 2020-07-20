@@ -7,7 +7,7 @@ import TMDBLogo from "../images/tmdb_logo.svg";
 import {
   StyledHeader,
   StyledRMDBLogo,
-  StyledTMDBLogo
+  StyledTMDBLogo,
 } from "../styles/StyledHeader";
 
 const Header = () => (
