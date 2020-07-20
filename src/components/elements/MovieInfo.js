@@ -43,7 +43,7 @@ const MovieInfo = ({ movie }) => (
 
 MovieInfo.propTypes = {
   movie: PropTypes.object,
-  directors: PropTypes.array
+  directors: PropTypes.array,
 };
 
 export default MovieInfo;
