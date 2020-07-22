@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
-
 import {
   StyledSearchBar,
   StyledSearchBarContent,
