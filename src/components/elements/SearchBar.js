@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import {
   StyledSearchBar,
-  StyledSearchBarContent
+  StyledSearchBarContent,
 } from "../styles/StyledSearchBar";
 
 const SearchBar = ({ callback }) => {
@@ -38,7 +38,7 @@ const SearchBar = ({ callback }) => {
 };
 
 SearchBar.propTypes = {
-  callback: PropTypes.func
+  callback: PropTypes.func,
 };
 
 export default SearchBar;
