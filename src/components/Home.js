@@ -4,7 +4,7 @@ import {
   API_KEY,
   IMAGE_BASE_URL,
   BACKDROP_SIZE,
-  POSTER_SIZE
+  POSTER_SIZE,
 } from "../config";
 import HeroImage from "./elements/HeroImage";
 import SearchBar from "./elements/SearchBar";
@@ -23,9 +23,9 @@ const Home = () => {
     {
       state: { movies, currentPage, totalPages, heroImage },
       loading,
-      error
+      error,
     },
-    fetchMovies
+    fetchMovies,
   ] = useHomeFetch();
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -38,10 +38,12 @@ const Home = () => {
 
   const loadMoreMovies = () => {
     //end point to load more movies
-    const searchEndPoint = `${API_URL}search/movie?api_key=${API_KEY}&query=${searchTerm}&page=${currentPage +
-      1}`;
-    const popularEndPoint = `${API_URL}movie/popular?api_key=${API_KEY}&page=${currentPage +
-      1}`;
+    const searchEndPoint = `${API_URL}search/movie?api_key=${API_KEY}&query=${searchTerm}&page=${
+      currentPage + 1
+    }`;
+    const popularEndPoint = `${API_URL}movie/popular?api_key=${API_KEY}&page=${
+      currentPage + 1
+    }`;
 
     const endpoint = searchTerm ? searchEndPoint : popularEndPoint;
 
