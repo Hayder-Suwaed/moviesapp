@@ -5,7 +5,6 @@ export const useHomeFetch = () => {
   const [state, setState] = useState({ movies: [] });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-
   const fetchMovies = async (endpoint) => {
     setError(false);
     setLoading(true);
