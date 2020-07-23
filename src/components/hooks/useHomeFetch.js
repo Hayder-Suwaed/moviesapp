@@ -10,7 +10,6 @@ export const useHomeFetch = () => {
     setLoading(true);
 
     const isLoadMore = endpoint.search("page");
-
     try {
       const result = await (await fetch(endpoint)).json();
       setState((prev) => ({
