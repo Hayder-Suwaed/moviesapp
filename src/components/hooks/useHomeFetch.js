@@ -44,6 +44,5 @@ export const useHomeFetch = () => {
       sessionStorage.setItem("homeState", JSON.stringify(state));
     }
   }, [state]);
-
   return [{ state, loading, error }, fetchMovies];
 };
