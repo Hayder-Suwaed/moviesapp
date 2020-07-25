@@ -1,5 +1,4 @@
 import React from "react";
-
 // Components
 import Navigation from "./elements/Navigation";
 import MovieInfo from "./elements/MovieInfo";
